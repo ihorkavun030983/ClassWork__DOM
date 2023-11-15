@@ -1,42 +1,92 @@
 // Метод document.createElement
 
-// let element = document.createElement ("тег");//Создание элемента
+// const header = document.createElement("h1");        // создаем заголовок <h1>
+// console.log(header);  // <h1></h1>
 
-// div.id = "my-div"; или // div.className = "someClass"; //додавання класів або ID
+// const  headerText = document.createTextNode("Hello World"); // создаем текстовый узел
+// console.log( headerText);  // "Hello World"
 
-// div.innerHTML = "Some text with <b>bold text</b>"; //додавання тексту
-// или
-// let text = document.createTextNode("Some text");
-// div.appendChild(text);
+//Используем метод appendChild():
 
-// родительский_элемент.appendChild(дочерний_элемент);//додавання дочірнього елемента в батьківський
+// const header = document.createElement("h1");        // создаем заголовок <h1>
+// const headerText = document.createTextNode("Hello World1"); // создаем текстовый узел
+// header.appendChild(headerText); // добавляем в элемент h1 текстовый узел
+// console.log(header);  // <h1>Hello World</h1>
 
-let div = document.createElement('div');
-// div.append("Hello World");
-let h1 = document.createElement('h1');
-// div.innerHTML = "Classwork JS"
-div.appendChild(h1)
+// Метод insertBefore
 
-// let p = document.createElement('p');
-// div.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos incidunt voluptatem placeat ex odio officiis quidem necessitatibus unde molestiae consequatur distinctio et dolore sequi delectus assumenda facere, quia harum excepturi pariatur. Dicta labore asperiores a quam corporis obcaecati vel blanditiis cum, iste quod quae aliquam odio distinctio dolorem mollitia, atque nihil optio fuga debitis pariatur suscipit deserunt. Ullam error quod neque veniam inventore, fugit vel id, ad quisquam quibusdam tempora, possimus sit unde doloremque aspernatur tenetur quas totam dignissimos voluptatibus expedita. Numquam, praesentium! Libero harum iusto omnis molestias earum. Autem hic dolor illum itaque pariatur excepturi dignissimos ab provident distinctio?"
-// div.appendChild(p)
+    // const first = document.createElement("li"); // создаем <li>
+    // first.textContent = "Page Header"; // определяем текст элемента
+    // // получаем первый параграф
+    // const firstLi = document.body.firstElementChild;
+    // // добавляем элемент li перед параграфом firstLi
+    // document.body.insertBefore(first, firstLi); 
 
-// let img = document.createElement('img');
-// img.src = "/img/1.jpg";
-// img.alt = "auto1"
-// div.appendChild(img)
+ //Метод копирования cloneNode():   
 
-// document.body.appendChild(div);
-// console.log(div)
+//  const article = document.getElementById("article");
+//  // получаем последний li
+//  const last = article.lastElementChild;
+//  // клонируем элемент last
+//  const newLastLi = last.cloneNode(true);
+//  //міняємо текст
+//  newLastLi.textContent = "Publication Date: 28/10/2023";
+//  // добавляем в конец элемента article
+//  article.appendChild(newLastLi);
 
-// Вот методы для различных вариантов вставки:
+//Замена елемента replaceChild
+// const article = document.getElementById("article");
+// // находим узел, который будем заменять
+// // пусть это будет первый элемент
+// const oldNode = article.firstElementChild;
+// // создаем новый элемент
+// const newNode = document.createElement("h2");
+// // определяем для него текст
+// newNode.textContent = "Hello World";
+// // заменяем старый узел новым
+// article.replaceChild(newNode, oldNode);
+// console.log(oldNode)
 
-// node.append(...nodes or strings) – добавляет узлы или строки в конец node,
-// node.prepend(...nodes or strings) – вставляет узлы или строки в начало node,
-// node.before(...nodes or strings) –- вставляет узлы или строки до node,
-// node.after(...nodes or strings) –- вставляет узлы или строки после node,
-// node.replaceWith(...nodes or strings) –- заменяет node заданными узлами или строками.
+//удаление елемента removeChild
+// const article = document.getElementById("article");
+// // находим узел, который будем удалять - последний параграф
+// const lastLi = article.lastElementChild;
+// // удаляем узел
+// article.removeChild(lastLi)
+// console.log(article)
 
+//видалення всих елементів
+// const article = document.getElementById("article");
+// while(article.firstChild){
+//     article.removeChild(article.firstChild);
+// }
+// console.log(article)
 
+//Отримання атрибута
 
-  
+// получаем элемент
+// const element = document.getElementById("home");
+// получаем атрибуты элемента
+// console.log(element.getAttribute("id")); або console.log(element.id);    // home
+// console.log(element.getAttribute("class")); або console.log(element.className); // link
+// console.log(element.getAttribute("href")); або console.log(element.href);  // index.html
+
+// устанавливаем атрибут href
+// element.setAttribute("href", "https://metanit.com");
+// устанавливаем атрибут style
+// element.setAttribute("style", "color:navy;");
+
+//видалення атрибута
+// const element = document.getElementById("home");
+// // удаляем атрибут style
+// element.removeAttribute("style")
+
+//зміна стилів
+
+const header = document.getElementById("header");
+    // получаем значение свойства color
+    console.log(header.style.color);    // пустая строка
+    // изменяем значение свойства color
+    header.style.color = "navy";
+    // повторно получаем значение свойства color
+    // console.log(header.style.color);    // navy
